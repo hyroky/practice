@@ -6,12 +6,10 @@ class Drink extends Menu {
   
   public function __construct($name, $price, $image, $type) {
     // 以下の4行を削除してください
-
     
     // 親クラスのコンストラクタを呼び出してください
-    parent::__construct($name, $price, $image) {
-      $this->type = $type;
-    }
+    parent::__construct($name, $price, $image);
+    $this->type = $type;
   }
   
   public function getType() {
