@@ -1,11 +1,9 @@
 <?php
 class Menu {
-  // name, price, imageプロパティのアクセス権をprotectedに変更してください
   protected $name;
   protected $price;
   protected $image;
   private $orderCount = 0;
-  // countクラスプロパティのアクセス権をprotectedに変更してください
   protected static $count = 0;
   
   public function __construct($name, $price, $image) {
@@ -13,7 +11,6 @@ class Menu {
     $this->price = $price;
     $this->image = $image;
     self::$count++;
-    
   }
   
   public function hello() {
@@ -46,6 +43,11 @@ class Menu {
   
   public static function getCount() {
     return self::$count;
+  }
+  
+  // findByNameというクラスメソッドを定義してください
+  public function findByName() {
+    
   }
   
 }
