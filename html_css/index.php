@@ -2,7 +2,12 @@
 class Menu {
   public $name;
   
-  // helloメソッドを定義してください
+  public fucntion __construct($name)
+  {
+  	$this->name = $name;
+  }
+
+
   public function hello()		//メソッドの定義
   {
     echo '私はMenuクラスのインスタンスです';
@@ -10,10 +15,8 @@ class Menu {
   
 }
 
-$curry = new Menu();
-$pasta = new Menu();
-$curry->name = 'CURRY';
-$pasta->name = 'PASTA';
+$curry = new Menu('CURRY');
+$pasta = new Menu('PASTA');
 // $curryに対してhelloメソッドを呼び出してください
 $curry->hello();	//メソッドの呼び出し
 
