@@ -1,4 +1,7 @@
-<?php require_once('data.php') ?>
+<?php 
+require_once('data.php');
+require_once('menu.php');
+?>
 
 <!DOCTYPE html>
 <html>
@@ -11,23 +14,21 @@
 <body>
   <div class="menu-wrapper container">
     <h1 class="logo">Café Progate</h1>
-    <!-- ここに<form>の開始タグを書いてください -->
-    <form action="confirm.php" method="post"></form>
+    <!-- Menuクラスに対してgetCountメソッドを呼び出して、クラスプロパティ$countを表示してください -->
+    <h3>メニュー<?php echo Menu::getCount(); ?>品</h3>
+    <form method="post" action="confirm.php">
       <div class="menu-items">
         <?php foreach ($menus as $menu): ?>
           <div class="menu-item">
             <img src="<?php echo $menu->getImage() ?>" class="menu-item-image">
             <h3 class="menu-item-name"><?php echo $menu->getName() ?></h3>
             <p class="price">¥<?php echo $menu->getTaxIncludedPrice() ?>（税込）</p>
-            <!-- <input>タグを用いて入力ボックスを作成してください  -->
-            <input type="text" name="<?php echo $menu->getName() ?>" value="0">
+            <input type="text" value="0" name="<?php echo $menu->getName() ?>">
             <span>個</span>
           </div>
         <?php endforeach ?>
       </div>
-      <!-- <input>タグを用いて送信ボタンを作成してください  -->
       <input type="submit" value="注文する">
-    <!-- ここで<form>の閉じタグを書いてください -->
     </form>
   </div>
 </body>
