@@ -1,5 +1,4 @@
-<!-- ここでdata.phpを読み込んでください  -->
-<?php require_once 'data.php'; ?>
+<?php require_once('data.php') ?>
 
 <!DOCTYPE html>
 <html>
@@ -13,17 +12,20 @@
   <div class="order-wrapper">
     <h2>注文内容確認</h2>
     <?php foreach ($menus as $menu): ?>
-      <!-- 変数$orderCountに$_POSTで受け取った値を代入してください -->
-      <?php $orderCount = $_POST[$menu->getName()]; ?>
+      <?php 
+        $orderCount = $_POST[$menu->getName()];
+        // $menuに対して、$orderCountを引数としてsetOrderCountメソッドを呼び出してください
+        $menu->setOrderCount($orderCount);
+        
+      ?>
       <p class="order-amount">
-        <!-- ここに、$menuのゲッターを用いてnameプロパティを表示してください -->
         <?php echo $menu->getName() ?>
         x
-        <!-- ここに、$orderCountを表示してください -->
         <?php echo $orderCount ?>
-        
         個
       </p>
+      <!-- $menuに対してgetTotalPriceメソッドを呼び出して、金額を表示してください -->
+      <p class="order-price"><?php echo $menu->getTotalPrice(); ?>円</p>
     <?php endforeach ?>
   </div>
 </body>
