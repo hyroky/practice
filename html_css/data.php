@@ -1,14 +1,19 @@
 <?php
+// menu.phpの読み込みを削除してください
 require_once('menu.php');
+// drink.phpとfood.phpを読み込んでください
+require_once ('drink.php');
+require_once ('food.php');
 
-$juice = new Menu('JUICE', 600, 'https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/juice.png');
-$coffee = new Menu('COFFEE', 500, 'https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/coffee.png');
-$curry = new Menu('CURRY', 900, 'https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/curry.png');
-$pasta = new Menu('PASTA', 1200, 'https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/pasta.png');
 
-// $juiceに対して数値の2を引数としてsetOrderCountメソッドを呼び出してください
-$juice->setOrderCount(2);
-echo $juice->setOrderCount;
+// $juiceをDrinkクラスのインスタンスとしてください
+$juice = new Drink('JUICE', 600, 'https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/juice.png');
+// $coffeeをDrinkクラスのインスタンスとしてください
+$coffee = new Drink('COFFEE', 500, 'https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/coffee.png');
+// $curryをFoodクラスのインスタンスとしてください
+$curry = new Food('CURRY', 900, 'https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/curry.png');
+// $pastaをFoodクラスのインスタンスとしてください
+$pasta = new Food('PASTA', 1200, 'https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/pasta.png');
 
 $menus = array($juice, $coffee, $curry, $pasta);
 
