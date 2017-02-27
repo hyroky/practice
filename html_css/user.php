@@ -1,22 +1,35 @@
 <?php
-// Userクラスを定義してください
 class User {
-	private $name;
-	private $gender;
+  // $idというprivateなプロパティを定義してください
+  private $id;
+  private $name;
+  private $gender;
+  // $countというprivateなクラスプロパティを、初期値を数値の0として定義してください
+  private static $count = 0;
+  
+  public function __construct($name, $gender) {
+    $this->name = $name;
+    $this->gender = $gender;
+    // クラスプロパティ$countの値に1を足してください
+    self::$count++;
+    
+    // idプロパティにクラスプロパティ$countの値を代入してください
+    $this->id = self::$count;
+    
+  }
+  
+  // getIdメソッドを定義してください
+  public function getId() {
+  	return $this->id = self::$count;
+  }
 
-	public function __construct($name, $gender) {
-		$this->name = $name;
-		$this->gender = $gender;
-	}
+  public function getName() {
+    return $this->name;
+  }
 
-	public function getName() {
-		return $this->name;
-	}
-
-	public function getGender() {
-		return $this->gender;
-	}
+  public function getGender() {
+    return $this->gender;
+  }
 }
-
 
 ?>
