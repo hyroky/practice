@@ -4,6 +4,11 @@ require_once('data.php');
 
 $menuName = $_GET['name'];
 $menu = Menu::findByName($menus, $menuName);
+// $menuに対して$reviewsを引数としてgetReviewsメソッドを呼び出して、戻り値を変数$menuReviewsに代入してください
+$menuReviews = $menu->getReviews($reviews);
+
+
+
 
 ?>
 
@@ -37,11 +42,12 @@ $menu = Menu::findByName($menus, $menuName);
           <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/review.png" class='icon-review'>
           <h4>レビュー一覧</h4>
         </div>
-        <!-- foreach文を書いてください -->
-        <?php foreach($reviews as $review): ?>
-        	<h3><?php echo $review->getMenuName()?></h3>
-        	<p><?php echo $review->getBody()?></p>
-        <?php endforeach?>
+        <!-- $reviewsを$menuReviewsに書き換えてください -->
+        <?php foreach($menuReviews as $review): ?>
+          <div class="review-list-item">
+            <p><?php echo $review->getBody() ?></p>
+          </div>
+        <?php endforeach ?>
       </div>
     </div>
     <a href="index.php">← メニュー一覧へ</a>
