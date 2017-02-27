@@ -19,7 +19,9 @@ require_once('menu.php');
       <div class="menu-items">
         <?php foreach ($menus as $menu): ?>
           <div class="menu-item">
+          <a href="show.php?name=<?php echo $menu->getName()?> ">
             <img src="<?php echo $menu->getImage() ?>" class="menu-item-image">
+          </a>
             <h3 class="menu-item-name">
               <!-- nameのクエリ情報を追加してください -->
               <a href="show.php?name=<?php echo $menu->getName()?> ">
